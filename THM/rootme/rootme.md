@@ -98,6 +98,29 @@ find / -type f -name user.txt 2>/dev/null
 
 ## Priv Esc
 
+Para poder escalar privilegios, exploraremos un rato la máquina y después de un rato, notamos que existen cosas de las que nos podemos agarrar en los permisos.
+
+Para ello, se uso el comando siguiente
+
+```shell
+find / -perm -4000 2>/dev/null
+```
+
+Lo que encontramos son todas los archivos, directorios, etc. que tienen privilegios de root. Lo que no salta la espina es `python`.
+
+![Python perm](src/perm.png)
+
+Confirmamos que podemos usar python desde ese usuario...
+
+Después, cuando confirmamos que ***Python*** puede ser ejecutado por nosotros usamos un payload para escalar desde Python y ***VUALÁ***...
+
+![Priv Esc](src/root.png)
+
+Finalmente buscamos las banderas faltantes como root y terminamos con la máquina.
+
+![Fin](src/privesc.png)
+
+
 ## Notas finales
 
 Esta es la primera máquina que pwneé, le tengo mucho cariño. 
