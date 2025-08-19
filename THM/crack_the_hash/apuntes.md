@@ -102,7 +102,8 @@ Stopped: Thu Aug 14 19:27:08 2025
     
 3. **$6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02** -->  (sha512crypt $6$, SHA512 (Unix))
 
-
+    `hashcat -a 0 -m 1800 2hash3.txt /usr/share/wordlists/rockyou.txt`
+    `hashcat -a 0 -m 1800 "\$6\$aReallyHardSalt\$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02." /usr/share/wordlists/rockyou.txt`
 
 4. **e5d8870e5bdd26602cab8dbe07a942c8669e56d6** --> 481616481616 (HMAC-SHA1 (key = $salt))
 
