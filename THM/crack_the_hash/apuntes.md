@@ -49,7 +49,7 @@
 
     Una vez hecho eso, usamos el siguiente comando:
 
-    `hashcat -a 0 -m 3200 cleart wordlist_4_caracteres.txt -w 3`
+    `hashcat -a 0 -m 3200 hash4.txt wordlist_4_caracteres.txt -w 3`
 
 5. **279412f945939ba78ce0758d3fd83daa** --> Eternity22 (MD4)
 
