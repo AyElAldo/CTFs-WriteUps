@@ -29,7 +29,7 @@
 
 4. **$2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom** --> bleh(bcrypt \$2*$, Blowfish (Unix))
 
-    Para este caso, sabemos que **hashcat** se tardaría DEMASIADO en encontrar la cosntraseña asociada al hash con el formato de **bcrypt**. Para eso usamos el **hint** de TryHackMe en donde nos da la pista de filtrar solamente las contraselas que contengan 4 letras minusculas.
+    Para este caso, sabemos que **hashcat** se tardaría DEMASIADO en encontrar la contraseña asociada al hash con el formato de **bcrypt**. Para eso usamos el **hint** de TryHackMe en donde nos da la pista de filtrar solamente las contraselas que contengan 4 letras minusculas.
 
     Por lo que usamos un código para filtrar el diccionario de RockYou (**yo usé Python**):
 
@@ -49,7 +49,7 @@
 
     Una vez hecho eso, usamos el siguiente comando:
 
-    `hashcat -a 0 -m 3200 hash4.txt wordlist_4_caracteres.txt -w 3`
+    `hashcat -a 0 -m 3200 cleart wordlist_4_caracteres.txt -w 3`
 
 5. **279412f945939ba78ce0758d3fd83daa** --> Eternity22 (MD4)
 
@@ -89,6 +89,12 @@ Stopped: Thu Aug 14 19:27:08 2025
 
 ```
 
+### HashCat Options
+
+![Opciones para ahorrarnos pasos en hashcat](src/hasid_options.png)
+
+Podemos ahorrarnos el paso de buscar en Internet el número de hash correspondiente en la opción **-m** y simplemente usar el comando `hashid -m [hash]`. De esta forma, la misma herramienta nos proporciona el equivalente del hash en hashcat. O en su defecto `-j` para John The Ripper (otra herramienta similar a hashcat).
+
 ----
 ## Nivel 2
 
@@ -101,6 +107,8 @@ Stopped: Thu Aug 14 19:27:08 2025
     `hashcat -a 0 -m 1000 2hash2.txt /usr/share/wordlists/rockyou.txt -w 3 -S`
     
 3. **$6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02** -->  (sha512crypt $6$, SHA512 (Unix))
+
+    **HINT: La contraseña tiene 6 letras.**
 
     `hashcat -a 0 -m 1800 2hash3.txt /usr/share/wordlists/rockyou.txt`
     `hashcat -a 0 -m 1800 "\$6\$aReallyHardSalt\$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02." /usr/share/wordlists/rockyou.txt`
